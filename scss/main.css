@@ -499,6 +499,24 @@
   opacity: 0.6;
 }
 
+.btn-group-item {
+  position: relative;
+  float: left;
+  border-right-width: 0;
+  border-radius: 0;
+}
+
+.btn-group-item:first-child {
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+}
+
+.btn-group-item:last-child {
+  border-right-width: 1px;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
 .flex-wrap {
   flex-wrap: wrap;
 }
