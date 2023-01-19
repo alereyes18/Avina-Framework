@@ -517,6 +517,46 @@
   border-bottom-right-radius: 6px;
 }
 
+.btn-primary {
+  background-color: #3880ff;
+  color: rgb(239, 239, 239);
+}
+
+.btn-secondary {
+  background-color: #5260ff;
+  color: rgb(239, 239, 239);
+}
+
+.btn-tertiary {
+  background-color: #5260ff;
+  color: rgb(239, 239, 239);
+}
+
+.btn-success {
+  background-color: #2dd36f;
+  color: rgb(239, 239, 239);
+}
+
+.btn-warning {
+  background-color: #ffc409;
+  color: rgb(40, 40, 40);
+}
+
+.btn-danger {
+  background-color: #eb445a;
+  color: rgb(239, 239, 239);
+}
+
+.btn-medium {
+  background-color: #92949c;
+  color: rgb(239, 239, 239);
+}
+
+.btn-light {
+  background-color: #f4f5f8;
+  color: rgb(40, 40, 40);
+}
+
 .input-sm {
   min-height: 28px;
   padding-top: 3px;

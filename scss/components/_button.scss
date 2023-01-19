@@ -1,77 +1,91 @@
-
-
-@each $color, $code in $colors{
-    .btn-#{$color}{
-        background-color: $code;
-    }
+@use "sass:color";
+@each $color, $code in $colors {
+   .btn-#{$color} {
+      background-color: $code;
+   }
 }
 
-.btn{
-    position: relative;
-    display: inline-block;
-    padding: 5px 16px;
-    font-size: 14px;
-     line-height: 20px;
-    white-space: nowrap;
-    vertical-align: middle;
-    cursor: pointer;
-     user-select: none;
-    border:none;
-    border-radius: 6px;
+.btn {
+   position: relative;
+   display: inline-block;
+   padding: 5px 16px;
+   font-size: 14px;
+   line-height: 20px;
+   white-space: nowrap;
+   vertical-align: middle;
+   cursor: pointer;
+   user-select: none;
+   border: none;
+   border-radius: 6px;
+}
 
- }
+.btn-large {
+   padding: 0.75em 1.5em;
+   font-size: inherit;
+   line-height: 1.5;
+   border-radius: 0.5em;
+}
+.btn-small {
+   padding: 3px 12px;
+   font-size: 12px;
+   line-height: 20px;
+}
 
- .btn-large{
-    padding: 0.75em 1.5em;
-    font-size: inherit;
-    line-height: 1.5;
-    border-radius: 0.5em;
- }
- .btn-small{
-    padding: 3px 12px;
-    font-size: 12px;
-    line-height: 20px;
- }
+.btn-block {
+   display: block;
+   width: 100%;
+   text-align: center;
+}
 
- .btn-block{
-    display: block;
-    width: 100%;
-    text-align: center;
- }
+.btn-link {
+   display: inline-block;
+   padding: 0;
+   font-size: inherit;
+   color: #0969da;
+   text-decoration: none;
+   white-space: nowrap;
+   cursor: pointer;
+   -webkit-user-select: none;
+   user-select: none;
+   background-color: transparent;
+   border: 0;
+   appearance: none;
+}
 
- .btn-link{
-    display: inline-block;
-    padding: 0;
-    font-size: inherit;
-    color: #0969da;
-    text-decoration: none;
-    white-space: nowrap;
-    cursor: pointer;
-    -webkit-user-select: none;
-    user-select: none;
-    background-color: transparent;
-    border: 0;
-    appearance: none;
- }
+[aria-disabled="true"] {
+   opacity: 0.6;
+}
 
- [aria-disabled=true]{
-     opacity:0.6;
- }
+.btn-group-item {
+   position: relative;
+   float: left;
+   border-right-width: 0;
+   border-radius: 0;
+}
 
+.btn-group-item:first-child {
+   border-top-left-radius: 6px;
+   border-bottom-left-radius: 6px;
+}
+.btn-group-item:last-child {
+   border-right-width: 1px;
+   border-top-right-radius: 6px;
+   border-bottom-right-radius: 6px;
+}
 
- .btn-group-item{
-    position: relative;
-    float: left;
-    border-right-width: 0;
-    border-radius: 0;
- }
+//Check if text color should be white or black;
+@function set-color($color) {
+   @if ( ((red($color)* 0.299)  + (green($color) * 0.587) + (blue($color)*0.114) < 186)) {
+      @return rgb(239, 239, 239);
+   } @else {
+      @return rgb(40, 40, 40);
+   }
+}
 
- .btn-group-item:first-child{
-    border-top-left-radius: 6px;
-    border-bottom-left-radius: 6px;
- }
- .btn-group-item:last-child{
-    border-right-width: 1px;
-    border-top-right-radius: 6px;
-    border-bottom-right-radius: 6px;
+//Generate class names for button color variations according to values set in _colors
+@each $color, $code in $colors {
+   .btn-#{$color} {
+      background-color: #{$code};
+      color: set-color($code);
+   }
 }
