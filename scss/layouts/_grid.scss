@@ -22,6 +22,18 @@ $columnWidth:calc(100 / $numColumns);
             flex-direction: row;
         }
     }
+    .flex-#{$size}-col{
+        @media (min-width:#{$value}){
+            flex-direction: column;
+        }
+    }
+}
+
+.flex-row{
+    flex-direction: row;
+}
+.flex-col{
+    flex-direction: column;
 }
 
  

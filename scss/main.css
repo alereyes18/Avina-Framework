@@ -517,6 +517,44 @@
   border-bottom-right-radius: 6px;
 }
 
+.input-sm {
+  min-height: 28px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.input-lg {
+  font-size: 16px;
+}
+
+.input-block {
+  display: block;
+  width: 100%;
+}
+
+.form-control {
+  padding: 5px 12px;
+  font-size: 14px;
+  line-height: 20px;
+  vertical-align: middle;
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  border: 1px solid rgb(227, 227, 227);
+  border-radius: 6px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.form-control:focus {
+  border: none;
+  outline: 1px solid rgb(197, 193, 193);
+}
+
+textarea.form-control {
+  min-height: 150px;
+}
+
 .flex-wrap {
   flex-wrap: wrap;
 }
@@ -1047,9 +1085,21 @@
   }
 }
 
+@media (min-width: 576px) {
+  .flex-sm-col {
+    flex-direction: column;
+  }
+}
+
 @media (min-width: 768px) {
   .flex-md-row {
     flex-direction: row;
+  }
+}
+
+@media (min-width: 768px) {
+  .flex-md-col {
+    flex-direction: column;
   }
 }
 
@@ -1059,8 +1109,28 @@
   }
 }
 
+@media (min-width: 992px) {
+  .flex-lg-col {
+    flex-direction: column;
+  }
+}
+
 @media (min-width: 1200px) {
   .flex-xl-row {
     flex-direction: row;
   }
+}
+
+@media (min-width: 1200px) {
+  .flex-xl-col {
+    flex-direction: column;
+  }
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-col {
+  flex-direction: column;
 }/*# sourceMappingURL=main.css.map */
