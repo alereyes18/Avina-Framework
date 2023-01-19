@@ -1,0 +1,59 @@
+
+
+@each $color, $code in $colors{
+    .btn-#{$color}{
+        background-color: $code;
+    }
+}
+
+.btn{
+    position: relative;
+    display: inline-block;
+    padding: 5px 16px;
+    font-size: 14px;
+     line-height: 20px;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+     user-select: none;
+    border:none;
+    border-radius: 6px;
+
+ }
+
+ .btn-large{
+    padding: 0.75em 1.5em;
+    font-size: inherit;
+    line-height: 1.5;
+    border-radius: 0.5em;
+ }
+ .btn-small{
+    padding: 3px 12px;
+    font-size: 12px;
+    line-height: 20px;
+ }
+
+ .btn-block{
+    display: block;
+    width: 100%;
+    text-align: center;
+ }
+
+ .btn-link{
+    display: inline-block;
+    padding: 0;
+    font-size: inherit;
+    color: #0969da;
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+    -webkit-user-select: none;
+    user-select: none;
+    background-color: transparent;
+    border: 0;
+    appearance: none;
+ }
+
+ [aria-disabled=true]{
+     opacity:0.6;
+ }

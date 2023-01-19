@@ -1,0 +1,27 @@
+$numColumns:12;
+$columnWidth:calc(100 / $numColumns);
+
+@for $i from 1 through $numColumns {
+    .col-#{$i}{
+        width: #{$columnWidth}#{unquote("%")};
+    }
+
+    @each $size, $value in $screen-sizes {
+        .col-#{$size}-#{$i}{
+ 
+            @media (min-width:#{$value}){
+                width: #{$columnWidth}#{unquote("%")};
+            }
+        }
+    }
+}
+
+@each $size, $value in $screen-sizes{
+    .flex-#{$size}-row{
+        @media (min-width:#{$value}){
+            flex-direction: row;
+        }
+    }
+}
+
+ 
