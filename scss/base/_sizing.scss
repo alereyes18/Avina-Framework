@@ -17,23 +17,34 @@ $sizes: 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 9
 }
 
 @each $size in $sizes {
-    .w-#{$size}{
-        width: #{$size}#{unquote("%")}
+    .w-#{$size} {
+        width: #{$size}#{unquote("%")};
     }
-    .h-#{$size}{
-        height: #{$size}#{unquote("%")}
+    .h-#{$size} {
+        height: #{$size}#{unquote("%")};
     }
 
-    @each $name, $screensize in $screen-sizes{
+    @each $name, $screensize in $screen-sizes {
         $maxWidth: get-media-query-max($screensize);
-        @media (max-width: $maxWidth)and (min-width: $screensize){
-            .w-#{$name}-#{$size}{
-                width: #{$size}#{unquote("%")}
+        @media (max-width: $maxWidth) and (min-width: $screensize) {
+            .w-#{$name}-#{$size} {
+                width: #{$size}#{unquote("%")};
+            }
+            .max-w-#{$name}-#{$size} {
+                max-width: #{$size}#{unquote("%")};
+            }
+            .min-w-#{$name}-#{$size} {
+                min-width: #{$size}#{unquote("%")};
+            }
+            .h-#{$name}-#{$size} {
+                height: #{$size}#{unquote("%")};
+            }
+            .max-h-#{$name}-#{$size} {
+                max-height: #{$size}#{unquote("%")};
+            }
+            .min-h-#{$name}-#{$size} {
+                min-height: #{$size}#{unquote("%")};
             }
         }
     }
 }
-
-
-
- 
