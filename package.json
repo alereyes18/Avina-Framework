@@ -1,0 +1,19 @@
+{
+  "name": "avina-css-framework",
+  "version": "1.0.0",
+  "description": "",
+  "main": "scss/",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alereyes18/Avina-Framework.git"
+  },
+  "author": "alereyes18",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alereyes18/Avina-Framework/issues"
+  },
+  "homepage": "https://github.com/alereyes18/Avina-Framework#readme"
+}
