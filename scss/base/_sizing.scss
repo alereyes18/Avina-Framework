@@ -1,5 +1,20 @@
-@use '../abstracts/variables';
 $sizes: 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100;
+
+@function get-media-query-max($size) {
+    $pixels: 5000px;
+    @if ($size - map-get($screen-sizes, "xs") == 0px) {
+        $pixels: map-get($screen-sizes, "sm");
+    }
+    @if ($size - map-get($screen-sizes, "sm") == 0px) {
+        $pixels: map-get($screen-sizes, "md");
+    } @else if ($size - map-get($screen-sizes, "md") == 0px) {
+        $pixels: map-get($screen-sizes, "lg");
+    } @else if ($size - map-get($screen-sizes, "lg") == 0px) {
+        $pixels: map-get($screen-sizes, "xl");
+    }
+
+    @return $pixels;
+}
 
 @each $size in $sizes {
     .w-#{$size}{
@@ -18,5 +33,7 @@ $sizes: 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 9
         }
     }
 }
+
+
 
  
