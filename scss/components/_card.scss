@@ -1,53 +1,45 @@
-.card{
-    position:relative;
- display: block;
-    border-radius: 1rem;
+.card {
+    position: relative;
+    display: block;
+
     box-shadow: $shadow-md;
-    overflow:auto;
-    background-color: green;
-
-    .card-header{
+    overflow: auto;
+    
+    .card-header {
         display: flex;
         align-items: center;
         justify-content: space-evenly;
+        flex-wrap: nowrap;
+        flex-direction: row;
         background-color: rgb(205, 205, 205);
-        .card-title{
-            margin:0.8rem;
+        .card-title {
+            margin: 0.8rem;
+        }
 
-          }
-
-        .card-icon{
-            margin:0.8rem;
-
+        .card-icon {
+            margin: 0.8rem;
         }
     }
 
-    .card-image{
-        margin:0.8rem;
-     }
-
-    .card-content{
-         background-color: green;
-
-
-        .content{
-            margin:0.8rem;
-
-        }
+    .card-image {
+        margin: 0.8rem;
+        width:100%;
+        margin:0;
     }
 
+    .card-content {
  
+        .content {
+            margin: 0.8rem;
+        }
+    }
 
-    .card-footer{
+    .card-footer {
         display: flex;
         align-items: center;
         justify-content: space-evenly;
-         background-color: rgb(205, 205, 205);
-        .card-footer-item{
-            margin:0.8rem 0;
+         .card-footer-item {
+            margin: 0.8rem 0;
         }
     }
-    
-
-    
 }
