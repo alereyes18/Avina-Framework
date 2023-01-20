@@ -1,0 +1,28 @@
+.border{
+    border:solid 1px gray;
+}
+
+$directions: top, right, bottom, left;
+ 
+
+@each $direction in $directions {
+    .border-#{$direction}{
+        border-#{$direction}: solid 1px gray;
+    }
+}
+
+$border-styles: dotted,dashed,solid,double,groove,ridge,inset,outset;
+
+
+
+@each $style in $border-styles {
+    .border-#{$style}{
+        border-style: $style;
+    }
+}
+
+@for $i from 1 to 21{
+    .border-radius-#{$i}{
+        border-radius:#{$i}px;
+    }
+}

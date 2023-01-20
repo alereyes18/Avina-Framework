@@ -1,0 +1,53 @@
+.card{
+    position:relative;
+ display: block;
+    border-radius: 1rem;
+    box-shadow: $shadow-md;
+    overflow:auto;
+    background-color: green;
+
+    .card-header{
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        background-color: rgb(205, 205, 205);
+        .card-title{
+            margin:0.8rem;
+
+          }
+
+        .card-icon{
+            margin:0.8rem;
+
+        }
+    }
+
+    .card-image{
+        margin:0.8rem;
+     }
+
+    .card-content{
+         background-color: green;
+
+
+        .content{
+            margin:0.8rem;
+
+        }
+    }
+
+ 
+
+    .card-footer{
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+         background-color: rgb(205, 205, 205);
+        .card-footer-item{
+            margin:0.8rem 0;
+        }
+    }
+    
+
+    
+}
