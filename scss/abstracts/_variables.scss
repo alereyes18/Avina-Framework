@@ -8,49 +8,14 @@ $screen-sizes: (
 
     //on xs screen, width is 320-576 px. if minwidth is xs, and max width is sm, change width
 );
-@function get-media-query-max($size) {
-    $pixels: 5000px;
-    @if ($size - map-get($screen-sizes, "xs") == 0px) {
-        $pixels: map-get($screen-sizes, "sm");
-    }
-    @if ($size - map-get($screen-sizes, "sm") == 0px) {
-        $pixels: map-get($screen-sizes, "md");
-    } @else if ($size - map-get($screen-sizes, "md") == 0px) {
-        $pixels: map-get($screen-sizes, "lg");
-    } @else if ($size - map-get($screen-sizes, "lg") == 0px) {
-        $pixels: map-get($screen-sizes, "xl");
-    }
 
-    @return $pixels;
-}
 
-// @function get-media-query-min($size) {
-//     $pixels:0px;
-//     @if  ($size - map-get($screen-sizes, "xs") == 0px) {
-//
-//         $pixels: map-get($screen-sizes, "xs");
-//      }
-
-//     @else if  ($size - map-get($screen-sizes, "sm") == 0px) {
-//
-//         $pixels: map-get($screen-sizes, "sm");
-
-//      }
-
-//     @else if  ($size - map-get($screen-sizes, "md") == 0px) {
-//
-//         $pixels: map-get($screen-sizes, "md");
-
-//      }
-
-//     @else if  ($size - map-get($screen-sizes, "lg") == 0px) {
-//
-//         $pixels: map-get($screen-sizes, "lg");
-
-//      }
-
-//
-//     @return $pixels;
-// }
 
 $spacer: 1rem;
+
+//Colors
+
+$color-header: #fff;
+
+//Fonts
+$font-primary:Arial, Helvetica, sans-serif;

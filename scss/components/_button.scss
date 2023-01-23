@@ -1,4 +1,6 @@
+
 @use "sass:color";
+@use '../abstracts/functions';
 @each $color, $code in $colors {
    .btn-#{$color} {
       background-color: $code;
@@ -73,19 +75,11 @@
    border-bottom-right-radius: 6px;
 }
 
-//Check if text color should be white or black;
-@function set-color($color) {
-   @if ( ((red($color)* 0.299)  + (green($color) * 0.587) + (blue($color)*0.114) < 186)) {
-      @return rgb(239, 239, 239);
-   } @else {
-      @return rgb(40, 40, 40);
-   }
-}
 
 //Generate class names for button color variations according to values set in _colors
 @each $color, $code in $colors {
    .btn-#{$color} {
       background-color: #{$code};
-      color: set-color($code);
+      color: functions.set-color($code);
    }
 }
