@@ -1,0 +1,42 @@
+.accordion{
+    @extend .flex-col;
+    > * {
+        @extend .px-y-1;
+    }
+}
+
+.accordion-item{
+ }
+.accordion-title{
+    @extend .h6;
+    cursor:pointer;
+ }
+.accordion-content{
+    display: none;
+ 
+}
+
+.accordion-content.expanded{
+    display: block;
+	animation: slide-in-fwd-center 0.3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    cursor:pointer;
+    @extend .flex-col;
+
+ > *{
+    @extend .mx-y-1;
+ }
+
+ > .content-link{
+  }
+}
+
+@keyframes slide-in-fwd-center {
+    0% {
+      transform: translateZ(-1400px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateZ(0);
+      opacity: 1;
+    }
+  }
