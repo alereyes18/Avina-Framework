@@ -13,8 +13,48 @@ $sizes: (
     .px-#{$name}{
         padding:#{$size};
     }
+    .px-left-#{$name}{
+        padding-left:#{$size};
+    }
+    .px-right-#{$name}{
+        padding-right:#{$size};
+    }
+    .px-top-#{$name}{
+        padding-top:#{$size};
+    }
+    .px-bottom-#{$name}{
+        padding-bottom:#{$size};
+    }
+    .px-x-#{$name}{
+        padding:0 #{$size};
+    }
+    .px-y-#{$name}{
+        padding:#{$size} 0;
+    }
+
+ 
 
     .mx-#{$name}{
         margin:#{$size};
     }
+    .mx-top-#{$name}{
+        margin-top:#{$size};
+    }
+    .mx-right-#{$name}{
+        margin-right:#{$size};
+    }
+    .mx-bottom-#{$name}{
+        margin-bottom:#{$size};
+    }
+    .mx-left-#{$name}{
+        margin-left:#{$size};
+    }
+    .mx-x-#{$name}{
+        margin:0 #{$size};
+    }
+    .mx-y-#{$name}{
+        margin:#{$size} 0;
+    }
+
+
 }
