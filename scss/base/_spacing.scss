@@ -26,11 +26,13 @@ $sizes: (
         padding-bottom:#{$size};
     }
     .px-x-#{$name}{
-        padding:0 #{$size};
+        padding-left: $size;
+        padding-right: $size;
     }
     .px-y-#{$name}{
-        padding:#{$size} 0;
-    }
+        padding-top:$size;
+        padding-bottom: $size;
+     }
 
  
 
