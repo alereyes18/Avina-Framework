@@ -3,14 +3,14 @@ $columnWidth:calc(100 / $numColumns);
 
 @for $i from 1 through $numColumns {
     .col-#{$i}{
-        width: #{$columnWidth * $i}#{unquote("%")};
+        flex-basis: #{$columnWidth * $i}#{unquote("%")};
     }
 
     @each $size, $value in $screen-sizes {
         .col-#{$size}-#{$i}{
  
             @media (min-width:#{$value}){
-                width: #{$columnWidth * $i}#{unquote("%")};
+                flex-basis: #{$columnWidth * $i}#{unquote("%")};
             }
         }
     }
