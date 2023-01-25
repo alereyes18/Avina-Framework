@@ -1,0 +1,44 @@
+@use "sass:string";
+$screen-sizes: (
+    "xs": 320px,
+    "sm": 576px,
+    "md": 768px,
+    "lg": 992px,
+    "xl": 1200px,
+
+    //on xs screen, width is 320-576 px. if minwidth is xs, and max width is sm, change width
+);
+
+
+
+$spacer: 1rem;
+
+//Colors
+$colors: (
+    "primary": #5E17EB,
+
+    "secondary": #7A29E3,
+
+    "tertiary": #9F67EC,
+
+    "success": #2dd36f,
+
+    "warning": #ffc409,
+
+    "danger": #eb445a,
+
+    "medium": #B287F1,
+
+    "light": #E8D9FC,
+
+    "dark": #3B1568,
+
+    "gray": #e5e5e5b0
+);
+
+
+
+$color-header: #fff;
+
+//Fonts
+$font-primary:Arial, Helvetica, sans-serif;

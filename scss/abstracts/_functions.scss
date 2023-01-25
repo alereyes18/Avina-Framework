@@ -1,0 +1,24 @@
+@use './variables' as *;
+@function set-color($color) {
+    @if ( ((red($color)* 0.299)  + (green($color) * 0.587) + (blue($color)*0.114) < 186)) {
+       @return rgb(239, 239, 239);
+    } @else {
+       @return rgb(40, 40, 40);
+    }
+ }
+
+ @function get-media-query-max($size) {
+    $pixels: 5000px;
+    @if ($size - map-get($screen-sizes, "xs") == 0px) {
+        $pixels: map-get($screen-sizes, "sm");
+    }
+    @if ($size - map-get($screen-sizes, "sm") == 0px) {
+        $pixels: map-get($screen-sizes, "md");
+    } @else if ($size - map-get($screen-sizes, "md") == 0px) {
+        $pixels: map-get($screen-sizes, "lg");
+    } @else if ($size - map-get($screen-sizes, "lg") == 0px) {
+        $pixels: map-get($screen-sizes, "xl");
+    }
+
+    @return $pixels;
+}

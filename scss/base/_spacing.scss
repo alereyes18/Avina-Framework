@@ -1,0 +1,62 @@
+$sizes: (
+    "0":0,
+    "1":calc($spacer * 0.25),
+    "2":calc($spacer * 0.5),
+    "3":calc($spacer),
+    "4":calc($spacer * 1.5),
+    "5":calc($spacer * 3),
+    "auto":auto,
+);
+
+
+@each $name, $size in $sizes{
+    .px-#{$name}{
+        padding:#{$size} !important;
+    }
+    .px-left-#{$name}{
+        padding-left:#{$size} !important;
+    }
+    .px-right-#{$name}{
+        padding-right:#{$size} !important;
+    }
+    .px-top-#{$name}{
+        padding-top:#{$size} !important;
+    }
+    .px-bottom-#{$name}{
+        padding-bottom:#{$size} !important;
+    }
+    .px-x-#{$name}{
+        padding-left: $size !important;
+        padding-right: $size !important;
+    }
+    .px-y-#{$name}{
+        padding-top:$size !important;
+        padding-bottom: $size !important;
+     }
+
+ 
+
+    .mx-#{$name}{
+        margin:#{$size} !important;
+    }
+    .mx-top-#{$name}{
+        margin-top:#{$size} !important;
+    }
+    .mx-right-#{$name}{
+        margin-right:#{$size} !important;
+    }
+    .mx-bottom-#{$name}{
+        margin-bottom:#{$size} !important;
+    }
+    .mx-left-#{$name}{
+        margin-left:#{$size} !important;
+    }
+    .mx-x-#{$name}{
+        margin:0 #{$size} !important;
+    }
+    .mx-y-#{$name}{
+        margin:#{$size} 0 !important;
+    }
+
+
+}
