@@ -11,7 +11,7 @@
         justify-content: space-evenly;
         flex-wrap: nowrap;
         flex-direction: row;
-        background-color: rgb(205, 205, 205);
+        background-color: map-get($colors, "gray");
         .card-title {
             margin: 0.8rem;
         }
