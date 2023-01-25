@@ -118,8 +118,8 @@ a:hover {
         top: 100%;
     }
 }
-
-.dropdown-menu-divider {
+//TODO: group with utility classes
+.divider {
     border: 1px solid darken($color-header, 20%);
 }
 
