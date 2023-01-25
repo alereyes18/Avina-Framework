@@ -7,6 +7,7 @@ $fontsizes: (
     "4": calc(1.275rem + 0.3vw),
     "5": 1.25rem,
     "6": 1rem,
+    "7":0.75rem
 );
 
 @each $name, $size in $fontsizes {
@@ -17,8 +18,26 @@ $fontsizes: (
         font-size:$size;
         font-weight: bold;
     }
+
+    @each $breakpoint, $pixels in $screen-sizes{
+        .fs-#{$breakpoint}-#{$name}{
+            @media (max-width:$pixels) {
+                font-size:$size;
+            }
+        }
+    }
 }
 
+.bold{
+    font-weight:bold;
+}
+.italic{
+    font-style: italic;
+}
+
+.caps{
+    text-transform: capitalize;
+}
 
 //No Wrap
 .text-nowrap {
