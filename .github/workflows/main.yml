@@ -26,7 +26,7 @@ jobs:
           destination: /tmp/Avina-Framework/css/main.css
           
       - name: Move compiled CSS to path within main branch
-        run: mv /tmp/main/css css/
+        run: mv /tmp/Avina-Framework/css css/
 
       - name: Add and Commit changes to pr-pages branch
         run: |
