@@ -1,7 +1,7 @@
 on:
   push:
     branches:
-      - main
+      - src-pages
 
 
 jobs:
@@ -15,28 +15,36 @@ jobs:
             ref: main
             fetch-depth: 10
             submodules: true
-            
+
       - name: Make destination directory for compiled CSS
-        run: mkdir -vp /tmp/Avina-Framework/css 
-        
+        run: mkdir -vp /tmp/repo-name/assets/css
+
       - name: Compile CSS from SCSS files
         uses: gha-utilities/sass-build@v0.4.11
         with:
           source: scss/main.scss
-          destination: /tmp/Avina-Framework/css/main.css
-          
-      - name: Move compiled CSS to path within main branch
-        run: mv /tmp/Avina-Framework/css css/
+          destination: /tmp/repo-name/assets/css/main.css
 
-      - name: Add and Commit changes to pr-pages branch
+      - name: Checkout destination Git branch
+        uses: actions/checkout@v2
+        with:
+            ref: main
+            fetch-depth: 1
+
+      - name: Move compiled CSS to path within main branch
+        run: mv /tmp/repo-name/assets/css assets/
+
+      - name: Add and Commit changes to main branch
         run: |
           git config --local user.email 'reyesalejandra161@gmail.com'
           git config --local user.name 'GitHub Action'
-          git add css/*
+          git add assets/css/*
           git commit -m 'Updates compiled CSS files'
-          
+
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.TOKEN }}
           branch: main
+
+ 
