@@ -1,3 +1,6 @@
+
+
+### VisualStudioCode ###
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
@@ -5,6 +8,7 @@
 !.vscode/extensions.json
 !.vscode/*.code-snippets
 
+ 
 # Local History for Visual Studio Code
 .history/
 
@@ -15,4 +19,7 @@
 logos
 *.html;
 docs.html
+.gitignore
 index.html
+
+.vscode/settings.json
