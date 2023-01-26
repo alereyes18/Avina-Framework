@@ -25,6 +25,9 @@ jobs:
           source: scss/main.scss
           destination: /tmp/Avina-Framework/css/main.css
           
+      - name: Move compiled CSS to path within main branch
+        run: mv /tmp/main/css css/
+
       - name: Add and Commit changes to pr-pages branch
         run: |
           git config --local user.email 'reyesalejandra161@gmail.com'
