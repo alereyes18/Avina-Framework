@@ -17,13 +17,13 @@ jobs:
             submodules: true
 
       - name: Make destination directory for compiled CSS
-        run: mkdir -vp /tmp/repo-name/assets/css
+        run: mkdir -vp /tmp/Avina-Framework/assets/css
 
       - name: Compile CSS from SCSS files
         uses: gha-utilities/sass-build@v0.4.11
         with:
           source: scss/main.scss
-          destination: /tmp/repo-name/assets/css/main.css
+          destination: /tmp/Avina-Framework/assets/css/main.css
 
       - name: Checkout destination Git branch
         uses: actions/checkout@v2
@@ -32,7 +32,7 @@ jobs:
             fetch-depth: 1
 
       - name: Move compiled CSS to path within main branch
-        run: mv /tmp/repo-name/assets/css assets/
+        run: mv /tmp/Avina-Framework/assets/css assets/
 
       - name: Add and Commit changes to main branch
         run: |
