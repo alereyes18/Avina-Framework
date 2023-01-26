@@ -18,3 +18,5 @@
 # Testing 
 logos
 *.html;
+docs.html
+.gitignore
