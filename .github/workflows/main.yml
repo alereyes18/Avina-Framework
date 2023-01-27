@@ -23,7 +23,7 @@ jobs:
           
       - name: Add and Commit changes to main branch
         run: |
-          git add assets/css/*
+          git add css/*
           git commit -m 'Updates compiled CSS files'
 
       - name: Push changes
