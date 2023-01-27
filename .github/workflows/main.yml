@@ -23,6 +23,7 @@ jobs:
           
       - name: Add and Commit changes to main branch
         run: |
+          git config --local user.email 'action@github.com' 
           git add css/*
           git commit -m 'Updates compiled CSS files'
 
