@@ -1,14 +1,13 @@
 on:
   push:
-    branches:
-      - main
     paths: 
-      - scss/
+      - 'scss/'
 
 
 jobs:
   build_css:
     runs-on: ubuntu-latest
+    if: ${{ github.ref == 'refs/heads/master' }}
 
     steps:
     
