@@ -13,7 +13,7 @@ jobs:
       - name: Checkout destination Git branch
         uses: actions/checkout@v2
         with:
-            ref: main
+            repository: main
             fetch-depth: 1
             
       - name: Make destination directory for compiled CSS
