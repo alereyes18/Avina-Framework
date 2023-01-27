@@ -13,8 +13,7 @@ jobs:
       - name: Checkout destination Git branch
         uses: actions/checkout@v2
         with:
-            repository: main
-            fetch-depth: 1
+            ref: main
             
       - name: Make destination directory for compiled CSS
         run: mkdir -vp /tmp/Avina-Framework/assets/css
