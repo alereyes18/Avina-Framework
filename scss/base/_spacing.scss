@@ -10,9 +10,9 @@ $sizes: (
 
 
 @each $name, $size in $sizes{
-    // .px-#{$name}{
-    //     padding:#{$size} !important;
-    // }
+    .px-#{$name}{
+        padding:#{$size} !important;
+    }
     .px-left-#{$name}{
         padding-left:#{$size} !important;
     }
