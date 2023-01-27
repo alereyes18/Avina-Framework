@@ -2,6 +2,8 @@ on:
   push:
     branches:
       - main
+    paths: 
+      - 'scss/*'
 
 
 jobs:
@@ -20,7 +22,7 @@ jobs:
         with:
           source: scss/main.scss
           destination: css/main.css
-          
+      
       - name: Add and Commit changes to main branch
         run: |
           git config --local user.email "action@github.com"
@@ -30,6 +32,7 @@ jobs:
 
       - name: Push changes
         uses: ad-m/github-push-action@master
+ 
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: main
