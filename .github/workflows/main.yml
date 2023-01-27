@@ -24,7 +24,6 @@ jobs:
           destination: css/main.css
       
       - name: Add and Commit changes to main branch
-        if: ${{git diff == 0}}
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
