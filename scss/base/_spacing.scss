@@ -13,7 +13,7 @@ $sizes: (
     .px-#{$name}{
         padding:#{$size} !important;
     }
-    .px-left-#{$name}{
+    .px-left-#{$name}{ 
         padding-left:#{$size} !important;
     }
     .px-right-#{$name}{
