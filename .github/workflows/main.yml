@@ -1,7 +1,7 @@
 on:
   push:
-    paths: 
-      - 'scss/*'
+    branch:
+      - main
 
 
 jobs:
@@ -21,7 +21,15 @@ jobs:
         with:
           source: scss/main.scss
           destination: css/main.css
-      
+
+      -name: Check if main.css was changed
+        uses: mudlabs/simple-diff@v1.2.0
+        id: diff
+        with:
+          path: css/main.css
+          -run: exit 1
+          if: steps.diff.outputs.modified == false
+
       - name: Add and Commit changes to main branch
         run: |
           git config --local user.email "action@github.com"
