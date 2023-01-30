@@ -1,3 +1,5 @@
+@use '../variables/screens' as *; 
+
 $numColumns:12;
 $columnWidth:calc(100 / $numColumns);
 

@@ -1,4 +1,4 @@
-@use './variables' as *;
+@use '../variables/screens' as *;
 @function set-color($color) {
     @if ( ((red($color)* 0.299)  + (green($color) * 0.587) + (blue($color)*0.114) < 186)) {
        @return rgb(239, 239, 239);

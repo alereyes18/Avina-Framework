@@ -1,4 +1,10 @@
-@use "../abstracts/functions";
+@use '../variables/colors' as *;
+@use "../abstracts/functions" as *;
+@use '../variables/screens' as *; 
+@use '../layouts/flex' as *;
+@use '../base/display' as *;
+@use '../layouts/grid' as *;
+
 
 //Base text elements
 
@@ -7,7 +13,7 @@ li {
 }
 
 a {
-    color: functions.set-color($color-header);
+    color: set-color($color-header);
     text-decoration: none;
     opacity: 1;
  }

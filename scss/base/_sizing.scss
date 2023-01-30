@@ -1,9 +1,10 @@
-@use '../abstracts/functions';
-$sizes: 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100;
+@use '../variables/screens' as *;
+@use '../abstracts/functions' as *;
+$intervals: 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100;
 
 
 
-@each $size in $sizes {
+@each $size in $intervals {
     .w-#{$size} {
         width: #{$size}#{unquote("%")};
     }
@@ -20,7 +21,7 @@ $sizes: 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 9
     }
 
     @each $name, $screensize in $screen-sizes {
-        $maxWidth: functions.get-media-query-max($screensize);
+        $maxWidth: get-media-query-max($screensize);
         @media (max-width: $maxWidth) and (min-width: $screensize) {
             .w-#{$name}-#{$size} {
                 width: #{$size}#{unquote("%")};

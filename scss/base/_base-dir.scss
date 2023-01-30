@@ -1,8 +1,8 @@
-@import "reset";
-@import "shadows";
-@import "sizing";
-@import "spacing";
-@import "typography";
-@import "display";
-@import "borders";
-@import "position";
+@forward "reset";
+@forward "shadows";
+@forward "sizing";
+@forward "spacing";
+@forward "typography";
+@forward "display";
+@forward "borders";
+@forward "position";

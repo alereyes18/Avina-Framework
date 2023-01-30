@@ -1,3 +1,5 @@
+@use '../variables/spacer' as *;
+
 $sizes: (
     "0":0,
     "1":calc($spacer * 0.25),
