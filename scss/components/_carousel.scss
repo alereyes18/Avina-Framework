@@ -1,0 +1,95 @@
+
+
+$carousel-control-color:             #fff;
+$carousel-control-width:             15%;
+$carousel-control-opacity:           .5;
+$carousel-control-hover-opacity:     .9;
+$carousel-control-transition:        opacity .15s ease;
+
+$carousel-indicator-width:           30px;
+$carousel-indicator-height:          3px;
+$carousel-indicator-hit-area-height: 10px;
+$carousel-indicator-spacer:          3px;
+$carousel-indicator-opacity:         .5;
+$carousel-indicator-active-bg:       #fff;
+$carousel-indicator-active-opacity:  1;
+$carousel-indicator-transition:      opacity .6s ease;
+
+$carousel-caption-width:             70%;
+$carousel-caption-color:             #fff;
+$carousel-caption-padding-y:         1.25rem;
+$carousel-caption-spacer:            1.25rem;
+
+$carousel-control-icon-width:        2rem;
+$carousel-control-prev-icon-bg:      url("data:image/svg+xml, <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 384 512'><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d='M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 278.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z'/></svg>");
+$carousel-control-next-icon-bg:      url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 384 512'><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d='M342.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L274.7 256 105.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z'/></svg>");
+
+$carousel-transition-duration:       .6s;
+$carousel-transition:                transform $carousel-transition-duration ease-in-out; // Define transform transition first if using multiple transitions (e.g., `transform 2s ease, opacity .5s ease-out`)
+.carousel{
+
+
+}
+
+.carousel-indicators{
+    @extend .carousel;
+
+}
+
+.carousel-inner{
+
+}
+
+.carousel-item{
+    display:none;
+}
+
+.carousel-item.active{
+    display:block;
+}
+.carousel-caption{
+    // if within a carousel item, the carousel will have a caption
+}
+
+.carousel-control-prev{
+    display: block;
+    width: 2rem;
+    height: 2rem;
+    border:none;
+    
+    &-icon{
+        display:block;
+        background-repeat: no-repeat;
+        background-image: $carousel-control-prev-icon-bg;
+        width:2rem;
+        height:2rem;
+    }
+}
+.carousel-control-next{
+   @extend .carousel-control-prev;
+    &-icon{
+        background-image: $carousel-control-next-icon-bg;
+        @extend .carousel-control-prev-icon;
+    }
+}
+
+/*
+Tree Structure
+.carousel
+    .carousel-indicators
+    .carousel-inner
+        .carousel-item
+            <img/>
+            .carousel-caption
+        .carousel-item
+            <img/>
+            .carousel-caption
+        .carousel-item
+            .carousel-caption
+    .carousel-control-prev
+        .carousel-control-prev-icon
+    .carousel-control-next
+        .carousel-control-next-icon
+
+
+*/
