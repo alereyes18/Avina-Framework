@@ -1,6 +1,6 @@
 on:
   push:
-    branch:
+    branches: 
       - main
 
 
@@ -22,7 +22,7 @@ jobs:
           source: scss/main.scss
           destination: css/main.css
 
-      -name: Check if main.css was changed
+      - name: Check if main.css was changed
         uses: mudlabs/simple-diff@v1.2.0
         id: diff
         with:
@@ -54,7 +54,7 @@ jobs:
         - run: npm ci
 
   publish-npm:
-    needs: build
+    needs: build_npm
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
