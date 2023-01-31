@@ -57,7 +57,6 @@ function init() {
                 console.log('Next Item Index:', nextItemIndex, '\nNext Item:', nextItem)
             }
         }
-
         else if (direction == 'next') {
             //If the activeItemIndex is the first item, nextItemIndex will be the last item
             if (activeItemIndex == carouselItems.length - 1) {
@@ -81,25 +80,50 @@ function init() {
 
         prev.item(0).addEventListener("click", () => {
             console.log('carousel #', carousel.id)
-
-            let carouselItems = getCarouselItems(carousel);
-            console.log(getActiveItem(carouselItems));
-            let activeItem = getActiveItem(carouselItems);
-            activeItem.activeItem.classList.remove('active');
-            let nextItem = getNextItem(carouselItems, activeItem.activeItemIndex, 'prev');
-            nextItem.nextItem.classList.add('active')
-
+            setNextItem(carousel, 'prev');
         })
         next.item(0).addEventListener("click", () => {
             console.log('carousel #', carousel.id)
-
-            let carouselItems = getCarouselItems(carousel);
-            console.log(getActiveItem(carouselItems));
-            let activeItem = getActiveItem(carouselItems);
-            activeItem.activeItem.classList.remove('active');
-            let nextItem = getNextItem(carouselItems, activeItem.activeItemIndex, 'next');
-            nextItem.nextItem.classList.add('active')
-
+            setNextItem(carousel, 'next');
         })
     })
+    function setNextItem(carousel, direction) {
+        let carouselItems = getCarouselItems(carousel);
+        console.log(getActiveItem(carouselItems));
+        let activeItem = getActiveItem(carouselItems);
+        let nextItem = getNextItem(carouselItems, activeItem.activeItemIndex, direction);
+
+        direction == 'next' ? nextItem.nextItem.classList.add('slideout') : nextItem.nextItem.classList.add('slidein');
+        if (direction == 'next'){
+            nextItem.nextItem.classList.add('slideout');
+            activeItem.activeItem.classList.add('slidein');
+        }
+        else {
+            nextItem.nextItem.classList.add('slidein');
+            activeItem.activeItem.classList.add('slideout');
+        }
+ 
+         setTimeout( () => {
+            if (direction == 'next'){
+                nextItem.nextItem.classList.remove('slideout');
+                activeItem.activeItem.classList.remove('slidein');
+            }
+            else {
+                nextItem.nextItem.classList.remove('slidein');
+                activeItem.activeItem.classList.remove('slideout');
+            }
+            activeItem.activeItem.classList.remove('active');
+            nextItem.nextItem.classList.add('active')
+    
+         }, 50)
+ 
+    }
+    for (carousel of carousels) {
+        if (carousel.classList.contains('autoplay')) {
+            setInterval(() => {
+                setNextItem(carousel, 'next');
+            }, 4000)
+
+        }
+    }
 }

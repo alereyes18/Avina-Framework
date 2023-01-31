@@ -1,6 +1,6 @@
 $carousel-width:400px;
 $carousel-height:400px;
-$carousel-bg-color:gray;
+$carousel-bg-color:rgb(225, 225, 225);
 $carousel-control-color: blue;
 $carousel-control-opacity: 0.5;
 $carousel-control-hover-opacity: 1;
@@ -25,7 +25,7 @@ $carousel-control-prev-icon-bg: url("data:image/svg+xml, <svg xmlns='http://www.
 $carousel-control-next-icon-bg: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 384 512' fill='#{$carousel-control-color}'><path d='M342.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L274.7 256 105.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z'/></svg>");
 
 $carousel-control-icon-margin: 2rem;
-$carousel-transition-duration: 0.6s;
+$carousel-transition-duration: 0.3s;
 $carousel-transition: transform $carousel-transition-duration ease-in-out; // Define transform transition first if using multiple transitions (e.g., `transform 2s ease, opacity .5s ease-out`)
 .carousel {
     position: relative;
@@ -49,17 +49,41 @@ $carousel-transition: transform $carousel-transition-duration ease-in-out; // De
 }
 
 .carousel-item {
-    width:$carousel-width;
-    height:$carousel-height;
-    display: none;
-    transition: $carousel-transition;
 
+    position:relative;
+    align-items: center;
+    display: flex;
+
+}
+.carousel-item:not(.active){
+    visibility: hidden;
+    width:0;
+    height:0;
+}
+.carousel-item:not(.active).slidein{
+    visibility: hidden;
+    width:0;
+    height:0;
+    transform:translateX(-100px);
+}
+.carousel-item:not(.active).slideout{
+    visibility: hidden;
+    width:0;
+    height:0;
+    transform:translateX(100px);
 }
 
 .carousel-item.active {
-    display: flex;
-    transition: $carousel-transition;
-    align-items: center;
+    visibility: visible;
+
+   
+    width:$carousel-width;
+    height:$carousel-height;
+
+    transition:transform $carousel-transition-duration;
+    transform:translateX(0);
+
+
 }
 .carousel-caption {
     // if within a carousel item, the carousel will have a caption
