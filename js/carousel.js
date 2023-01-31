@@ -1,89 +1,105 @@
-if (document.readyState == 'loading'){
-    console.log('if: ',document.readyState);
+if (document.readyState == 'loading') {
     init();
 }
-else {
-    console.log('else: ',document.readyState);
 
+else {
     document.addEventListener('DOMContentLoaded', (state) => {
         console.log(state);
-        console.log('else post: ',document.readyState);
-
+        console.log('else post: ', document.readyState);
         init();
-        
-    })
-
-}
-
-function init(){
-const carousels = document.querySelectorAll('.carousel');
-console.log('carousels:',carousels)
-const prev= document.getElementsByClassName('carousel-control-prev');
-const next= document.getElementsByClassName('carousel-control-next');
-const carouselItems = document.getElementsByClassName('carousel-item')
-for (let i = 0; i < prev.length; i++){
-
-    prev.item(i).addEventListener("click", () =>{
-        // console.log('prev clicked', next.item(i));
-        for(let i = 0; i < carouselItems.length; i++){
-            let currentItem = carouselItems.item(i);
-            let nextIndex;
-            
-            if( currentItem.classList.contains('active')){
-                // console.log('This item contains active:', currentItem, 'with index ', i);
-                //Check which image should be active after clicking next
-                if(i == 0){ 
-                    //If the current active item is the first item, the index of the next item is the last item
-                    nextIndex = carouselItems.length-1;
-                }
-                else{
-                    //If the index of the current active item is not the first item, decrement the index
-                    nextIndex = i-1;
-                }
-                // console.log('length:',carouselItems.length, "current index:", i, "next index:", nextIndex);
-                //After finding the index of the next item to be active, get the next item
-                let nextItem = carouselItems.item(nextIndex);
-                //Remove active from current item
-                currentItem.classList.remove('active');
-                //And add active to the next item
-                nextItem.classList.add('active');
-                break;
-            }
-            else{
-                // console.log("This item DOES NOT contain active:",currentItem);
-            }
-        }
-    })
-
-    next.item(i).addEventListener("click", () =>{
-        // console.log('next clicked', next.item(i));
-        for(let i = 0; i < carouselItems.length; i++){
-            let currentItem = carouselItems.item(i);
-            let nextIndex;
-            if( currentItem.classList.contains('active')){
-                // console.log('This item contains active:', currentItem);
-                //Check which image should be active after clicking next
-                if(i == carouselItems.length - 1){ 
-                    //If the current active item is the last item, the index of the next item is 0
-                    nextIndex = 0
-                }
-                else{
-                    //If the index of the current active item is not the last item, increment the index
-                    nextIndex = i+1;
-                }
-                // console.log('length:',carouselItems.length, "current index:", i, "next index:", nextIndex);
-                //After finding the index of the next item to be active, get the next item
-                let nextItem = carouselItems.item(nextIndex);
-                //Remove active from current item
-                currentItem.classList.remove('active');
-                //And add active to the next item
-                nextItem.classList.add('active');
-                break;
-            }
-            else{
-                // console.log("This item DOES NOT contain active:",currentItem);
-            }
-        }
     })
 }
+
+function init() {
+    const carousels = document.querySelectorAll('.carousel');
+    function getCarouselItems(carousel) {
+        let carouselChildren, carouselInner, carouselItems;
+        //Get the children of the carousel item (should be carousel-indicators, carousel-inner, carousel-control)
+        carouselChildren = carousel.children;
+        //Find the inner element
+        for (child of carouselChildren) {
+            if (child.classList.contains('carousel-inner')) carouselInner = child;
+        }
+        //Get the carousel-item elements
+        carouselItems = carouselInner.children;
+        return carouselItems;
+    }
+    function getActiveItem(carouselItems) {
+        let activeItemIndex, activeItem;
+        for (let i = 0; i < carouselItems.length; i++) {
+            let currentItem = carouselItems.item(i);
+
+            console.log('Index:', i, '\nItem:', currentItem)
+            //Check if the current item is the active item
+            if (currentItem.classList.contains('active')) {
+                //Set the active item and its index in carouselItems
+                activeItemIndex = i;
+                activeItem = currentItem;
+                console.log('Active Index:', i, '\nActive Item:', activeItem)
+                break
+            }
+        }
+        return { activeItemIndex, activeItem };
+    }
+    function getNextItem(carouselItems, activeItemIndex, direction) {
+        let nextItemIndex, nextItem;
+        if (direction == 'prev') {
+            //If the activeItemIndex is the first item, nextItemIndex will be the last item
+            if (activeItemIndex == 0) {
+                nextItemIndex = carouselItems.length - 1;
+                nextItem = carouselItems.item(nextItemIndex);
+                console.log('Next Item Index:', nextItemIndex, '\nNext Item:', nextItem)
+            }
+            else {
+                //Else, the nextItemIndex will be activeItemIndex+1
+                nextItemIndex = activeItemIndex - 1;
+                nextItem = carouselItems.item(nextItemIndex);
+                console.log('Next Item Index:', nextItemIndex, '\nNext Item:', nextItem)
+            }
+        }
+
+        else if (direction == 'next') {
+            //If the activeItemIndex is the first item, nextItemIndex will be the last item
+            if (activeItemIndex == carouselItems.length - 1) {
+                nextItemIndex = 0;
+                nextItem = carouselItems.item(nextItemIndex);
+                console.log('Next Item Index:', nextItemIndex, '\nNext Item:', nextItem)
+            }
+            else {
+                //Else, the nextItemIndex will be activeItemIndex+1
+                nextItemIndex = activeItemIndex + 1;
+                nextItem = carouselItems.item(nextItemIndex);
+                console.log('Next Item Index:', nextItemIndex, '\nNext Item:', nextItem)
+            }
+        }
+        return { nextItemIndex, nextItem }
+    }
+
+    carousels.forEach(carousel => {
+        const prev = carousel.getElementsByClassName('carousel-control-prev')
+        const next = carousel.getElementsByClassName('carousel-control-next')
+
+        prev.item(0).addEventListener("click", () => {
+            console.log('carousel #', carousel.id)
+
+            let carouselItems = getCarouselItems(carousel);
+            console.log(getActiveItem(carouselItems));
+            let activeItem = getActiveItem(carouselItems);
+            activeItem.activeItem.classList.remove('active');
+            let nextItem = getNextItem(carouselItems, activeItem.activeItemIndex, 'prev');
+            nextItem.nextItem.classList.add('active')
+
+        })
+        next.item(0).addEventListener("click", () => {
+            console.log('carousel #', carousel.id)
+
+            let carouselItems = getCarouselItems(carousel);
+            console.log(getActiveItem(carouselItems));
+            let activeItem = getActiveItem(carouselItems);
+            activeItem.activeItem.classList.remove('active');
+            let nextItem = getNextItem(carouselItems, activeItem.activeItemIndex, 'next');
+            nextItem.nextItem.classList.add('active')
+
+        })
+    })
 }
