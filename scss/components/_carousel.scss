@@ -53,6 +53,8 @@ $carousel-transition: transform $carousel-transition-duration ease-in-out; // De
     position:relative;
     align-items: center;
     display: flex;
+    flex-direction: column;
+    flex-wrap:nowrap;
 
 }
 .carousel-item:not(.active){
@@ -78,8 +80,7 @@ $carousel-transition: transform $carousel-transition-duration ease-in-out; // De
 
    
     width:$carousel-width;
-    height:$carousel-height;
-
+ 
     transition:transform $carousel-transition-duration;
     transform:translateX(0);
 
@@ -146,7 +147,7 @@ Tree Structure
 .carousel
     .carousel-indicators
     .carousel-inner
-        .carousel-item
+        .carousel-item active
             <img/>
             .carousel-caption
         .carousel-item
