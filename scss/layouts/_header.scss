@@ -85,7 +85,7 @@ a:hover {
 }
 
 .nav-icon {
-    color: map-get($colors, "primary");
+    color: $color-icon
 }
 
 .nav-logo {
