@@ -7,7 +7,7 @@ on:
 jobs:
   build_webpack:
     runs-on: ubuntu-latest
-    if: ${{ github.ref == 'refs/heads/master' }}
+
 
     steps:
     
@@ -38,12 +38,20 @@ jobs:
       #     -run: exit 1
       #     if: steps.diff.outputs.modified == false
 
+      - name: Check if main.css was changed
+        uses: mudlabs/simple-diff@v1.2.0
+        id: diff
+        with:
+          path: dist/
+          -run: exit 1
+          if: steps.diff.outputs.modified == false
+
       - name: Add and Commit changes to main branch
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add *
-          git commit -m 'Updates compiled CSS files'
+          git add dist/
+          git commit -m 'Updates compiled Webpack files'
 
       - name: Push changes
         uses: ad-m/github-push-action@master
