@@ -5,7 +5,7 @@ on:
 
 
 jobs:
-  build_css:
+  build_webpack:
     runs-on: ubuntu-latest
     if: ${{ github.ref == 'refs/heads/master' }}
 
@@ -15,20 +15,28 @@ jobs:
         uses: actions/checkout@v2
         with:
           ref: main
-                
-      - name: Compile CSS from SCSS files
-        uses: gha-utilities/sass-build@v0.4.11
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
         with:
-          source: scss/main.scss
-          destination: css/main.css
+          node-version: ${{ matrix.node-version }}
 
-      - name: Check if main.css was changed
-        uses: mudlabs/simple-diff@v1.2.0
-        id: diff
-        with:
-          path: css/main.css
-          -run: exit 1
-          if: steps.diff.outputs.modified == false
+      - name: Build webpack
+        run: |
+          npm install
+          npx webpack 
+      # - name: Compile CSS from SCSS files
+      #   uses: gha-utilities/sass-build@v0.4.11
+      #   with:
+      #     source: scss/main.scss
+      #     destination: css/main.css
+
+      # - name: Check if main.css was changed
+      #   uses: mudlabs/simple-diff@v1.2.0
+      #   id: diff
+      #   with:
+      #     path: css/main.css
+      #     -run: exit 1
+      #     if: steps.diff.outputs.modified == false
 
       - name: Add and Commit changes to main branch
         run: |
