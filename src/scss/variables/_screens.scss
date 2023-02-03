@@ -1,0 +1,9 @@
+$screen-sizes: (
+    "xs": 320px,
+    "sm": 576px,
+    "md": 768px,
+    "lg": 992px,
+    "xl": 1200px,
+
+    //on xs screen, width is 320-576 px. if minwidth is xs, and max width is sm, change width
+) !default;

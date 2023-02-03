@@ -1,0 +1,157 @@
+@use '../variables/colors' as *;
+@use "../abstracts/functions" as *;
+@use '../variables/screens' as *; 
+@use '../layouts/flex' as *;
+@use '../base/display' as *;
+@use '../layouts/grid' as *;
+
+
+//Base text elements
+
+li {
+    list-style: none;
+}
+
+a {
+    color: set-color($color-header);
+    text-decoration: none;
+    opacity: 1;
+ }
+
+a:hover {
+    opacity: 0.8;
+}
+
+//**********BRAND**********
+.header-brand {
+    @extend .flex-justify-start;
+    @extend .d-flex;
+
+    @media (min-width: map-get($screen-sizes, "md")) {
+        display: block;
+    }
+}
+.header{
+    background-color: $color-header;
+}
+
+//**********BURGER**********
+
+.header-burger {
+    @extend .flex-justify-end;
+    display: none;
+
+    .nav-item {
+        height: 3rem;
+    }
+
+    @media (max-width: map-get($screen-sizes, "md")) {
+        display: flex;
+    }
+}
+
+.header-burger.open {
+    @extend .flex-justify-end;
+
+    .nav-item {
+        height: 3rem;
+    }
+}
+
+//**********NAV**********
+
+.header-nav {
+    @extend .flex-row;
+    justify-content: space-around;
+
+    @media (max-width: map-get($screen-sizes, "md")) {
+        display: none;
+    }
+}
+
+.nav-right,
+.nav-left {
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    @extend .flex-row;
+}
+
+.nav-item {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    padding:0 20px;
+}
+
+.nav-icon {
+    color: $color-icon
+}
+
+.nav-logo {
+    max-width: 15rem;
+    margin:10px;
+}
+.nav-link{
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+//**********DROPDOWN**********
+
+.dropdown-menu {
+    display: flex;
+    background-color: $color-header;
+    border-radius: 5px;
+    padding: 0;
+    display: none;
+
+    .menu-item {
+        padding: 3px 20px;
+    }
+}
+
+.nav-dropdown-animated {
+    position: relative;
+}
+
+.nav-dropdown-animated:hover {
+    .dropdown-menu {
+        text-align: left;
+        position: absolute;
+        display: block;
+
+        right: 0;
+        left: auto;
+        top: 100%;
+    }
+}
+//TODO: group with utility classes
+.divider {
+    border: 1px solid darken($color-header, 20%);
+}
+
+//**********HEADER**********
+
+.header {
+    align-items: center;
+    display: flex;
+    padding: 0 5%;
+    justify-content: space-between;
+
+    @media (max-width: map-get($screen-sizes, "md")) {
+        justify-content: space-around;
+    }
+
+    @extend .flex-row;
+
+}
+
+@media (max-width: map-get($screen-sizes, "md")) {
+    .header-brand {
+        .nav-item {
+            max-width: 10rem;
+        }
+    }
+}

@@ -1,10 +1,11 @@
 {
   "name": "@alereyes18/avina-framework",
-  "version": "1.1.4",
+  "version": "1.2.0",
   "description": "SCSS framework",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
   },
   "repository": {
     "type": "git",

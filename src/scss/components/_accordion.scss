@@ -1,0 +1,51 @@
+.accordion {
+    @extend .flex-col;
+    > * {
+        @extend .px-y-1;
+    }
+    background-color: map-get($colors, "gray");
+
+    height: 100%;
+    padding:0;
+ 
+ 
+ }
+
+.accordion-item {
+}
+.accordion-title {
+    @extend .h6;
+    cursor: pointer;
+}
+.accordion-content {
+    visibility: hidden;
+    height:0;
+    padding:5px;
+    @extend .flex-col;
+}
+
+.accordion-content.expanded {
+    visibility: visible;
+    height:initial;
+    animation: slide-in-fwd-center 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    cursor: pointer;
+     
+
+    > * {
+        @extend .mx-y-1;
+    }
+
+    > .content-link {
+    }
+}
+
+@keyframes slide-in-fwd-center {
+    0% {
+        transform: translateZ(-1400px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateZ(0);
+        opacity: 1;
+    }
+}
