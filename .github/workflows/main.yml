@@ -7,23 +7,170 @@ on:
 jobs:
   build_webpack:
     runs-on: ubuntu-latest
-
-
+    timeout-minutes: 2
     steps:
-    
       - name: Checkout source Git branch
         uses: actions/checkout@v2
         with:
           ref: main
+          
       - name: Setup Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-
       - name: Build webpack
         run: |
           npm install
           npx webpack 
+
+  check_changes:
+<<<<<<< HEAD
+=======
+      needs: build_webpack
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v2
+        - name: Check if avina.css or avina.js was changed
+          uses: tj-actions/verify-changed-files@v13
+          id: verify-changed-files
+          with:
+            files: |
+              **/avina.js
+              **/avina.css
+<<<<<<< HEAD
+<<<<<<< HEAD
+        - name: If any of the above files changed, continue
+          if: steps.verify-changed-files.outputs.files_changed == 'false'
+          run: |
+            echo "Changed files: ${{ steps.verify-changed-files.outputs.changed_files }}"
+            exit 1
+            
+  check_repo:       
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> e2cf1e9 (Updating main.yaml)
+      needs: build_webpack
+=======
+=======
+      if: steps.verify-changed-files.outputs.files_changed == 'true'
+>>>>>>> c833243 (Updating main.yaml)
+=======
+>>>>>>> 7db55fa (Updating main.yaml)
+      needs: check_changes
+>>>>>>> 31ee330 (Updating main.yaml)
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v2
+        - name: Check if avina.css or avina.js was changed
+          uses: tj-actions/verify-changed-files@v13
+          id: verify-changed-files
+          with:
+            files: |
+              **/avina.js
+              **/avina.css
+           
+=======
+          if: steps.verify-changed-files.outputs.files_changed == 'true'
+>>>>>>> 1bc14cf (Updating main.yaml)
+=======
+           
+>>>>>>> ec09590 (Updating main.yaml)
+        - name: Add and Commit changes to main branch
+          run: |
+            git config --local user.email "action@github.com"
+            git config --local user.name "GitHub Action"
+            git add ./dist/
+            git commit -m 'Updates compiled Webpack files'
+          if: steps.verify-changed-files.outputs.files_changed == 'true'
+
+        - name: Push changes
+          uses: ad-m/github-push-action@master
+ 
+          with:
+            github_token: ${{ secrets.GITHUB_TOKEN }}
+            branch: main
+<<<<<<< HEAD
+<<<<<<< HEAD
+          if: steps.verify-changed-files.outputs.files_changed == 'true'
+ 
+ 
+<<<<<<< HEAD
+=======
+
+=======
+          if: steps.verify-changed-files.outputs.files_changed == 'true'
+>>>>>>> ec09590 (Updating main.yaml)
+ 
+
+  build_npm:
+      needs: check_changes
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v3
+        - uses: actions/setup-node@v3
+          with:
+            node-version: 16
+        - run: npm ci
+
+>>>>>>> 1bc14cf (Updating main.yaml)
+=======
+>>>>>>> 21dc0d9 (Updating main.yaml)
+  publish-npm:
+    needs: check_changes
+    runs-on: ubuntu-latest
+    steps:
+<<<<<<< HEAD
+<<<<<<< HEAD
+ 
+<<<<<<< HEAD
+=======
+>>>>>>> f6c3c55 (Updating main.yaml)
+=======
+ 
+>>>>>>> 21dc0d9 (Updating main.yaml)
+=======
+      - uses: actions/checkout@v3
+>>>>>>> cc2ce02 (Updating main.yaml)
+      - name: Check if package.json was changed
+        uses: tj-actions/verify-changed-files@v13
+        id: verify-changed-files
+        with:
+          files: |
+            **/package.json
+
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 21dc0d9 (Updating main.yaml)
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - run: npm ci
+        if: steps.verify-changed-files.outputs.files_changed == 'true'
+
+<<<<<<< HEAD
+=======
+>>>>>>> f6c3c55 (Updating main.yaml)
+=======
+>>>>>>> 21dc0d9 (Updating main.yaml)
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          registry-url: 'https://registry.npmjs.org/'
+        if: steps.verify-changed-files.outputs.files_changed == 'true'
+
+          
+      - run: npm ci
+      - run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_PUBLISH_TOKEN}}
+        if: steps.verify-changed-files.outputs.files_changed == 'true'
+
+
+
+
       # - name: Compile CSS from SCSS files
       #   uses: gha-utilities/sass-build@v0.4.11
       #   with:
@@ -37,48 +184,20 @@ jobs:
       #     path: css/main.css
       #     -run: exit 1
       #     if: steps.diff.outputs.modified == false
+        # Outputs: "Changed files: new.txt test_directory/new.txt"
+        # - uses: actions/checkout@v2
+        # - name: Check if avina.css was changed
+        #   uses: mudlabs/simple-diff@v1.2.0
+        #   id: css
+        #   with:
+        #     path: dist/avina.css
+        #     -run: exit 1
+        #     if: steps.diff.outputs.removed == true
 
-      - name: Check if main.css was changed
-        uses: mudlabs/simple-diff@v1.2.0
-        id: diff
-        with:
-          path: dist/
-          -run: exit 1
-          if: steps.diff.outputs.modified == false
-
-      - name: Add and Commit changes to main branch
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add dist/
-          git commit -m 'Updates compiled Webpack files'
-
-      - name: Push changes
-        uses: ad-m/github-push-action@master
- 
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: main
-
-  build_npm:
-      runs-on: ubuntu-latest
-      steps:
-        - uses: actions/checkout@v3
-        - uses: actions/setup-node@v3
-          with:
-            node-version: 16
-        - run: npm ci
-
-  publish-npm:
-    needs: build_npm
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16
-          registry-url: 'https://registry.npmjs.org/'
-      - run: npm ci
-      - run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_PUBLISH_TOKEN}}
+        # - name: Check if avina.js was changed
+        #   uses: mudlabs/simple-diff@v1.2.0
+        #   id: js
+        #   with:
+        #     path: 'dist/avina.js'
+        #     -run: exit 1
+  

@@ -7,8 +7,7 @@ const isProduction = process.env.NODE_ENV == "production";
 const stylesHandler = MiniCssExtractPlugin.loader;
 
 const config = {
-  watch:true,
-  devServer: {
+   devServer: {
     // Can be omitted unless you are using 'docker' 
     host: '0.0.0.0',
   },
@@ -55,12 +54,10 @@ module.exports = () => {
   
   if (isProduction) {
     config.mode = "production";
-    watch: true
-
+ 
   } else {
     config.mode = "development";
-    watch: true
-  }
+   }
   return config;
   
 };

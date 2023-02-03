@@ -1,6 +1,6 @@
 {
   "name": "@alereyes18/avina-framework",
-  "version": "1.2.1", 
+  "version": "1.2.2",
   "description": "SCSS framework",
   "main": "index.js",
   "scripts": {
@@ -13,6 +13,15 @@
   },
   "author": "",
   "license": "ISC",
+  "dependencies": {
+    "sass-loader": "^13.2.0",
+    "babel-loader": "^9.1.2",
+    "css-loader": "^6.7.3",
+    "mini-css-extract-plugin": "^2.7.2",
+    "webpack-cli": "5.0.1",
+    "webpack": "^5.75.0",
+    "sass": "^1.58.0"
+  },
   "bugs": {
     "url": "https://github.com/alereyes18/Avina-Framework/issues"
   },
