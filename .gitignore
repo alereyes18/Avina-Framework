@@ -6,3 +6,6 @@ scss/main.css
 
 *node_modules
 web
+.vscode/settings.json
+src/scss/main.css
+src/scss/main.css.map
