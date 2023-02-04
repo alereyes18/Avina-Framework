@@ -41,8 +41,7 @@ jobs:
             git config --local user.name "GitHub Action"
             git add ./dist/
             git commit -m 'Updates compiled Webpack files'
-          if: steps.verify-changed-files.outputs.files_changed == 'true'
-
+          if: steps.verify-changed-files.outputs.files_changed 
         - name: Push changes
           uses: ad-m/github-push-action@master
  
@@ -56,7 +55,7 @@ jobs:
     needs: check_changes
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2 
+ 
       - name: Check if package.json was changed
         uses: tj-actions/verify-changed-files@v13
         id: verify-changed-files
@@ -68,22 +67,19 @@ jobs:
         with:
           node-version: 16
       - run: npm ci
-        if: steps.verify-changed-files.outputs.files_changed == 'true'
-
+        if: steps.verify-changed-files.outputs.files_changed 
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
           node-version: 16
           registry-url: 'https://registry.npmjs.org/'
-        if: steps.verify-changed-files.outputs.files_changed == 'true'
-
+        if: steps.verify-changed-files.outputs.files_changed 
           
       - run: npm ci
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_PUBLISH_TOKEN}}
-        if: steps.verify-changed-files.outputs.files_changed == 'true'
-
+        if: steps.verify-changed-files.outputs.files_changed 
 
 
 
@@ -99,8 +95,7 @@ jobs:
       #   with:
       #     path: css/main.css
       #     -run: exit 1
-      #     if: steps.diff.outputs.modified == false
-        # Outputs: "Changed files: new.txt test_directory/new.txt"
+      #     if: steps.diff.outputs.modified         # Outputs: "Changed files: new.txt test_directory/new.txt"
         # - uses: actions/checkout@v2
         # - name: Check if avina.css was changed
         #   uses: mudlabs/simple-diff@v1.2.0
@@ -108,8 +103,7 @@ jobs:
         #   with:
         #     path: dist/avina.css
         #     -run: exit 1
-        #     if: steps.diff.outputs.removed == true
-
+        #     if: steps.diff.outputs.removed 
         # - name: Check if avina.js was changed
         #   uses: mudlabs/simple-diff@v1.2.0
         #   id: js

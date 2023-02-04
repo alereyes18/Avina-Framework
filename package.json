@@ -20,11 +20,16 @@
     "mini-css-extract-plugin": "^2.7.2",
     "webpack-cli": "5.0.1",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "webpack": "^5.75.0",
     "sass": "^1.58.0"
 =======
     "webpack": "^5.75.0"
 >>>>>>> 08c7cb9 (Updating main.yaml, added node caching)
+=======
+    "webpack": "^5.75.0",
+    "sass": "^1.58.0"
+>>>>>>> f80e383 (Updating main.yaml)
   },
   "bugs": {
     "url": "https://github.com/alereyes18/Avina-Framework/issues"
