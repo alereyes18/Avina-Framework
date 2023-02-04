@@ -2,10 +2,11 @@
   "name": "@alereyes18/avina-framework",
   "version": "1.2.2",
   "description": "SCSS framework",
-  "main": "index.js",
+  "main": "dist/avina.js",
+  "files": ["dist"],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack"
+    "build": "webpack --config webpack.config.js",
+    "start": "http-server dist"
   },
   "repository": {
     "type": "git",
@@ -19,6 +20,8 @@
     "css-loader": "^6.7.3",
     "mini-css-extract-plugin": "^2.7.2",
     "webpack-cli": "5.0.1",
+    "style-loader": "3.3.1",
+    "http-server": "14.1.1",
 
     "webpack": "^5.75.0",
     "sass": "^1.58.0"
