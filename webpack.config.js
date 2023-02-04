@@ -1,9 +1,11 @@
 // Generated using webpack-cli https://github.com/webpack/webpack-cli
 
 const path = require("path");
- const isProduction = process.env.NODE_ENV == "production";
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const isProduction = process.env.NODE_ENV == "production";
 
- 
+const stylesHandler = MiniCssExtractPlugin.loader;
+
 const config = {
    devServer: {
     // Can be omitted unless you are using 'docker' 
@@ -23,7 +25,8 @@ const config = {
   plugins: [
 
 
- 
+    new MiniCssExtractPlugin(),
+
     // Add your plugins here
     // Learn more about plugins from https://webpack.js.org/configuration/plugins/
   ],
@@ -35,11 +38,11 @@ const config = {
       },
       {
         test: /\.css$/i,
-        use: [ "style-loader", "css-loader"],
+        use: [stylesHandler, "style-loader", "css-loader"],
       },
       {
         test: /\.s[ac]ss$/i,
-        use: [ "css-loader", "sass-loader"],
+        use: [stylesHandler, "css-loader", "sass-loader"],
       },
       {
         test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
