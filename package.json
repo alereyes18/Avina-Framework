@@ -6,7 +6,9 @@
   "files": ["dist"],
   "scripts": {
     "build": "webpack --config webpack.config.js",
-    "start": "http-server dist"
+    "start": "http-server dist",
+    "test": "npx live-server  -w",
+    "watch sass": "sass src/scss/main.scss src/scss/main.css -w"
   },
   "repository": {
     "type": "git",

@@ -1,0 +1,89 @@
+.bg-primary {
+  background-color: "primary";
+}
+
+.bg-secondary {
+  background-color: "secondary";
+}
+
+.bg-tertiary {
+  background-color: "tertiary";
+}
+
+.bg-success {
+  background-color: "success";
+}
+
+.bg-warning {
+  background-color: "warning";
+}
+
+.bg-danger {
+  background-color: "danger";
+}
+
+.bg-medium {
+  background-color: "medium";
+}
+
+.bg-light {
+  background-color: "light";
+}
+
+.bg-dark {
+  background-color: "dark";
+}
+
+.bg-gray {
+  background-color: "gray";
+}
+
+body {
+  background-color: #fff;
+}
+
+.color-primary {
+  color: "primary";
+}
+
+.color-secondary {
+  color: "secondary";
+}
+
+.color-tertiary {
+  color: "tertiary";
+}
+
+.color-success {
+  color: "success";
+}
+
+.color-warning {
+  color: "warning";
+}
+
+.color-danger {
+  color: "danger";
+}
+
+.color-medium {
+  color: "medium";
+}
+
+.color-light {
+  color: "light";
+}
+
+.color-dark {
+  color: "dark";
+}
+
+.color-gray {
+  color: "gray";
+}
+
+body {
+  color: rgb(40, 40, 40);
+}
+
+/*# sourceMappingURL=utilities-dir.css.map */

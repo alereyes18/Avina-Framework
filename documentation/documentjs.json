@@ -1,0 +1,12 @@
+{
+    "siteDefaults":{
+        "static": "style-guide-theme"
+    },
+    "sites": {
+        "styles": {
+            "glob": "styles/**/*.{css,less,scss,md}",
+            "dest": "styleguide",
+            "parent": "styles" 
+        }
+    }
+}

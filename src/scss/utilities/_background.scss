@@ -1,0 +1,13 @@
+@use '../variables/colors' as *;
+@each $color, $hex in $colors
+{
+    .bg-#{$color}
+    {
+        background-color: $hex;
+    }
+}
+
+
+body{
+    background-color:$bg-color;
+}

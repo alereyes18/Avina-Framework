@@ -1,6 +1,7 @@
 
 @use "sass:color";
 @use '../abstracts/functions';
+@use '../variables/colors' as *;
 @each $color, $code in $colors {
    .btn-#{$color} {
       background-color: $code;

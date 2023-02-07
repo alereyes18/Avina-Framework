@@ -1,25 +1,37 @@
+@use '../abstracts/functions' as *;
+
 //Individual colors
 //If modified, make sure to modify the map as well
 //Button requires the map to generate buttons of each color
-$primary: #5E17EB;
 
-$secondary: #7A29E3;
+$bg-color: #fff !default;
+$body-color:set-color($bg-color) !default;
 
-$tertiary: #9F67EC;
+ 
 
-$success: #2dd36f;
 
-$warning: #ffc409;
+$primary: #5E17EB !default;
 
-$danger: #eb445a;
+$secondary: #7A29E3 !default;
 
-$medium: #B287F1;
+$tertiary: #9F67EC !default;
 
-$light: #E8D9FC;
+$success: #2dd36f !default;
 
-$dark: #3B1568;
+$warning: #ffc409 !default;
 
-$gray: #e5e5e5b0;
+$danger: #eb445a !default;
+
+$medium: #B287F1 !default; 
+
+$light: #E8D9FC !default;
+
+$dark: #3B1568 !default;
+
+$gray: #e5e5e5b0 !default;
+
+
+
 
 $colors: (
     "primary": $primary,
@@ -34,4 +46,4 @@ $colors: (
     "gray": $gray ) !default;
 
 
-
+ 

@@ -1,2 +1,15 @@
-$color-header:#FFF !default;
-$color-icon:#010101 !default;
+@use './spacer' as *;
+@use '../variables/colors' as *;
+@use '../abstracts/functions' as *;
+$header-color: $primary  !default;
+$header-icon-color: (
+    set-color($header-color)) !default;
+
+$header-padding-x: $spacer * 5 !default;
+$header-padding-y: $spacer * 0.5 !default;
+
+$header-link-margin-x: $spacer * 1 !default;
+$header-link-margin-y: $spacer * 0.5 !default;
+
+$nav-padding-y: $spacer * 0 !default;
+$nav-padding-x: $spacer * 0.3 !default;

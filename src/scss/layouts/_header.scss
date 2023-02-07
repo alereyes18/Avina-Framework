@@ -1,122 +1,156 @@
 @use "../abstracts/functions" as *;
-@use '../variables/screens' as *; 
+@use '../variables/screens' as *;
 @use '../layouts/flex' as *;
 @use '../base/display' as *;
 @use '../layouts/grid' as *;
 @use '../variables/header' as *;
+@use '../base/typography';
 
 //Base text elements
 
-li {
+li
+{
     list-style: none;
 }
 
-a {
-    color: set-color($color-header);
+a
+{
+    color: set-color($header-color);
     text-decoration: none;
     opacity: 1;
- }
+}
 
-a:hover {
+a:hover
+{
     opacity: 0.8;
 }
 
 //**********BRAND**********
-.header-brand {
+.header-brand
+{
     @extend .flex-justify-start;
     @extend .d-flex;
 
-    @media (min-width: map-get($screen-sizes, "md")) {
+    @media (min-width: map-get($screen-sizes, "md"))
+    {
         display: block;
     }
 }
-.header{
-    background-color: $color-header;
-}
+
+
+
 
 //**********BURGER**********
 
-.header-burger {
+.header-burger
+{
     @extend .flex-justify-end;
     display: none;
 
-    .nav-item {
+    .nav-item
+    {
         height: 3rem;
     }
 
-    @media (max-width: map-get($screen-sizes, "md")) {
+    @media (max-width: map-get($screen-sizes, "md"))
+    {
         display: flex;
     }
 }
 
-.header-burger.open {
+.header-burger.open
+{
     @extend .flex-justify-end;
 
-    .nav-item {
+    .nav-item
+    {
         height: 3rem;
     }
 }
 
 //**********NAV**********
 
-.header-nav {
+.header-nav
+{
     @extend .flex-row;
     justify-content: space-around;
 
-    @media (max-width: map-get($screen-sizes, "md")) {
+    @media (max-width: map-get($screen-sizes, "md"))
+    {
         display: none;
     }
 }
 
 .nav-right,
-.nav-left {
+.nav-left
+{
     align-items: center;
     padding: 0;
     margin: 0;
     @extend .flex-row;
 }
 
-.nav-item {
+.nav-item
+{
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
-    padding:0 20px;
+    padding: 0 20px;
 }
 
-.nav-icon {
-    color: $color-icon
+.nav-icon
+{
+    color: $header-icon-color;
+    padding-left: $nav-padding-x;
+    padding-right: $nav-padding-x;
+    padding-top: $nav-padding-y;
+    padding-bottom: $nav-padding-y;
 }
 
-.nav-logo {
+.nav-logo
+{
     max-width: 15rem;
-    margin:10px;
+    margin: 10px;
 }
-.nav-link{
+
+.nav-link
+{
     display: flex;
     align-items: center;
     flex-wrap: nowrap;
+    margin-left: $header-link-margin-x;
+    margin-right: $header-link-margin-x;
+    margin-top: $header-link-margin-y;
+    margin-bottom: $header-link-margin-y;
+    @extend .cursor-pointer;
+
 }
 
 //**********DROPDOWN**********
 
-.dropdown-menu {
+.dropdown-menu
+{
     display: flex;
-    background-color: $color-header;
+    background-color: $header-color;
     border-radius: 5px;
     padding: 0;
     display: none;
 
-    .menu-item {
+    .menu-item
+    {
         padding: 3px 20px;
     }
 }
 
-.nav-dropdown-animated {
+.nav-dropdown-animated
+{
     position: relative;
 }
 
-.nav-dropdown-animated:hover {
-    .dropdown-menu {
+.nav-dropdown-animated:hover
+{
+    .dropdown-menu
+    {
         text-align: left;
         position: absolute;
         display: block;
@@ -126,20 +160,30 @@ a:hover {
         top: 100%;
     }
 }
+
 //TODO: group with utility classes
-.divider {
-    border: 1px solid darken($color-header, 20%);
+.divider
+{
+    border: 1px solid darken($header-color, 20%);
 }
 
 //**********HEADER**********
 
-.header {
+.header
+{
     align-items: center;
     display: flex;
     padding: 0 5%;
     justify-content: space-between;
+    background-color: $header-color;
+    padding-left: $header-padding-x;
+    padding-right: $header-padding-x;
+    color: set-color($header-color);
+    padding-top: $header-padding-y;
+    padding-bottom: $header-padding-y;
 
-    @media (max-width: map-get($screen-sizes, "md")) {
+    @media (max-width: map-get($screen-sizes, "md"))
+    {
         justify-content: space-around;
     }
 
@@ -147,9 +191,12 @@ a:hover {
 
 }
 
-@media (max-width: map-get($screen-sizes, "md")) {
-    .header-brand {
-        .nav-item {
+@media (max-width: map-get($screen-sizes, "md"))
+{
+    .header-brand
+    {
+        .nav-item
+        {
             max-width: 10rem;
         }
     }

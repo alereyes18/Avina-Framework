@@ -1,0 +1,14 @@
+@use '../variables/colors' as *;
+@use '../abstracts/functions' as *;
+@each $color, $hex in $colors
+{
+ 
+    .color-#{$color}{
+        color: $hex;
+    }
+}
+
+
+body{
+    color:set-color($body-color);
+}

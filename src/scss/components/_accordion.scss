@@ -1,3 +1,35 @@
+ @use '../variables/colors' as *;
+ @use '../layouts/grid' as *;
+ @use '../base/spacing' as *;
+ @use '../base/typography' as *;
+$accordion-padding-x: 1.25rem !default;
+$accordion-padding-y: 1rem !default;
+$accordion-color:$body-color !default;
+$accordion-bg:$bg-color !default;
+/*
+Tree Structure
+.accordion
+    .accordion-header
+    .accordion-item: ul
+        .accordion-title: p
+        .accordion-content (.expanded): ul
+            .content-link: li
+        .carousel-item active
+            <img/>
+            .carousel-caption
+        .carousel-item
+            <img/>
+            .carousel-caption
+        .carousel-item
+            .carousel-caption
+    .carousel-control: div
+        .carousel-control-prev: button
+            .carousel-control-prev-icon: span
+        .carousel-control-next: button
+            .carousel-control-next-icon: span
+
+
+*/
 .accordion {
     @extend .flex-col;
     > * {
@@ -7,15 +39,23 @@
 
     height: 100%;
     padding:0;
+    color:$accordion-color;
+    //TODO: uncomment
+    // background-color: $accordion-bg;
+    background-color: gray;
  
- 
- }
-
+ } 
+.accordion-header{
+    @extend .h4;
+}
 .accordion-item {
+    height:100%;
+    width:100%;
 }
 .accordion-title {
     @extend .h6;
     cursor: pointer;
+
 }
 .accordion-content {
     visibility: hidden;
