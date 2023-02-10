@@ -1,7 +1,7 @@
 @use './spacer' as *;
 @use '../abstracts/functions' as *;
 //Carousel Container
-$carousel-width: 100% !default;
+$carousel-width: 500px !default;
 $carousel-height:400px;
 $carousel-bg-color: rgb(225, 225, 225) !default;
 $carousel-radius: 5px !default;
