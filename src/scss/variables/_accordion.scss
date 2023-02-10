@@ -1,0 +1,11 @@
+@use '../abstracts/functions' as *;
+$accordion-content-padding-y:0.3rem;
+$accordion-content-padding-x:1rem;
+$accordion-header-padding-x:1rem;
+$accordion-header-padding-y:1rem;
+$accordion-title-padding-x:1rem;
+$accordion-title-padding-y:1rem;
+//TODO, add padding to accordion.scss
+$accordion-bg-color:rgb(234,234,234);
+$accordion-color:set-color($accordion-bg-color);
+
