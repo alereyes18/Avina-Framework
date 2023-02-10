@@ -7,35 +7,24 @@ $accordion-padding-y: 1rem !default;
 $accordion-color:$body-color !default;
 $accordion-bg:$bg-color !default;
 /*
-Tree Structure
+Tree Structurec
 .accordion
     .accordion-header
-    .accordion-item: ul
+    .accordion-item: div
         .accordion-title: p
         .accordion-content (.expanded): ul
             .content-link: li
-        .carousel-item active
-            <img/>
-            .carousel-caption
-        .carousel-item
-            <img/>
-            .carousel-caption
-        .carousel-item
-            .carousel-caption
-    .carousel-control: div
-        .carousel-control-prev: button
-            .carousel-control-prev-icon: span
-        .carousel-control-next: button
-            .carousel-control-next-icon: span
-
-
+    .accordion-item: div
+        .accordion-title: p
+        .accordion-content (.expanded): ul
+            .content-link: li
 */
 .accordion {
     @extend .flex-col;
     > * {
         @extend .px-y-1;
     }
-    background-color: map-get($colors, "gray");
+    background-color: $accordion-bg-color;
 
     height: 100%;
     padding:0;
@@ -68,14 +57,17 @@ Tree Structure
     visibility: visible;
     height:initial;
     animation: slide-in-fwd-center 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-    cursor: pointer;
-     
+    padding-top:$accordion-content-padding-y;
+    padding-bottom:$accordion-content-padding-y;
+    padding-left:$accordion-content-padding-x;
+    padding-right:$accordion-content-padding-x;
 
     > * {
         @extend .mx-y-1;
     }
 
     > .content-link {
+        cursor:pointer;
     }
 }
 
